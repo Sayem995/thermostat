@@ -3,10 +3,31 @@
   <head>
     <title>Thermostat</title>
   </head>
+
+  <script>
+    $(document).ready(function() {
+      var thermostat = new Thermostat();
+      $('#thermostat').text(thermostat.thermostat);
+    })
+
+    $('thermostat-up').on('click', function() {
+      thermostat.up();
+      $('#thermostat').text(thermostat.thermostat);
+    })
+
+    $('thermostat-down').on('click', function() {
+      thermostat.down();
+      $('#thermostat').text(thermostat.thermostat);
+    })
+
+    
+
+  </script>
   <body>
     <section>
       <h1>Thermostat</h1>
 
+      <!-- $('#thermostat').text('hello jQuery world!'); -->
       <h1 id="thermostat"></h1>
 
       <p>Temperature:</p>
@@ -19,6 +40,6 @@
       <button id="thermostat-usage" type="submit">Usage</button>
     </section>
   <script src="src/thermostat.js"></script>
-
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   </body>
 </html>
