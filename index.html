@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Thermostat</title>
+    <script src="src/thermostat.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   </head>
 
   <script>
@@ -12,17 +14,17 @@
     $('thermostat-up').on('click', function() {
       thermostat.up();
       updateThermostat();
-    })
+    });
 
     $('thermostat-down').on('click', function() {
       thermostat.down();
       updateThermostat();
-    })
+    });
 
     $('thermostat-reset').on('click', function(){
       thermostat.reset();
       updateThermostat();
-    })
+    });
 
     $('thermostat-powerSaving').on('click', function(){
       thermostat.powerSaving("on");
@@ -44,10 +46,8 @@
         $('#thermostat').css('color', 'red')
       }
     }
-    };
   });
-
-
+  // });
 
   </script>
   <body>
@@ -66,7 +66,5 @@
       <button id="thermostat-powerSaving" type="submit">PowerSaveMode: on/off</button>
       <button id="thermostat-usage" type="submit">Usage</button>
     </section>
-  <script src="src/thermostat.js"></script>
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   </body>
 </html>
