@@ -7,20 +7,47 @@
   <script>
     $(document).ready(function() {
       var thermostat = new Thermostat();
-      $('#thermostat').text(thermostat.thermostat);
-    })
+      updateThermostat();
 
     $('thermostat-up').on('click', function() {
       thermostat.up();
-      $('#thermostat').text(thermostat.thermostat);
+      updateThermostat();
     })
 
     $('thermostat-down').on('click', function() {
       thermostat.down();
-      $('#thermostat').text(thermostat.thermostat);
+      updateThermostat();
     })
 
-    
+    $('thermostat-reset').on('click', function(){
+      thermostat.reset();
+      updateThermostat();
+    })
+
+    $('thermostat-powerSaving').on('click', function(){
+      thermostat.powerSaving("on");
+      updateThermostat();
+    })
+
+    $('thermostat-powerSaving').on('click', function(){
+      thermostat.powerSaving("off");
+      updateThermostat();
+    })
+
+    function updateThermostat(){
+      $('#thermostat').text(thermostat.thermostat);
+      if(thermostat.usage() === 'low') {
+        $('#thermostat').css('color', 'green')
+      } else if(thermostat.usage() === 'medium') {
+        $('#thermostat').css('color', 'black')
+      } else {
+        $('#thermostat').css('color', 'red')
+      }
+    }
+    };
+  });
+
+
 
   </script>
   <body>
